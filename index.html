@@ -376,7 +376,7 @@
             transform: translateY(-3px);
         }
 
-        /* Estilos para las nuevas imágenes de la cumpleañera */
+        /* Estilos para las fotos de la cumpleañera */
         .birthday-photo-container {
             margin: 60px auto; /* Espacio antes y después */
             max-width: 700px; /* Ancho máximo para el contenedor */
@@ -408,7 +408,45 @@
             margin-top: 10px;
         }
 
+        /* Nueva sección de RSVP/Confirmación */
+        #rsvp { 
+            background: var(--white);
+            padding-bottom: 80px;
+            position: relative;
+        }
 
+        #rsvp .container {
+             background: rgba(255, 255, 255, 0.95);
+             padding: 50px;
+             border-radius: 15px;
+        }
+        
+        .whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            background-color: #25D366; /* WhatsApp Green */
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.2em;
+            margin-top: 30px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+        }
+
+        .whatsapp-button i {
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
+
+        .whatsapp-button:hover {
+            background-color: #1DA851; 
+            transform: translateY(-3px);
+        }
+        
         #final-message {
             background: var(--primary-color);
             padding-bottom: 80px;
@@ -461,7 +499,7 @@
             #hero .date-location { font-size: 1.3em; }
             section { padding: 60px 15px; }
             .container { padding: 25px; }
-            .map-button { padding: 12px 25px; font-size: 1em; }
+            .map-button, .whatsapp-button { padding: 12px 25px; font-size: 1em; }
             .detail-item { text-align: center; border-left: none; }
             .countdown-item { font-size: 3em; gap: 15px; }
             .countdown-item span { font-size: 0.4em; }
@@ -559,6 +597,7 @@
 
         <div class="decorative-separator sep-1"></div>
 
+        
         <section class="birthday-photo-container">
             <img src="images/birthday-photo-1.jpg" alt="Fanny Giacomo - Feliz Cumpleaños">
             <p>¡No te lo puedes perder!</p>
@@ -592,6 +631,7 @@
 
         <div class="decorative-separator sep-3"></div>
 
+        
         <section class="birthday-photo-container">
             <img src="images/birthday-photo-2.jpg" alt="Fanny Giacomo - Celebrando">
             <p>¡Hagamos de este día una fiesta inolvidable!</p>
@@ -632,6 +672,7 @@
 
         <div class="decorative-separator sep-5"></div>
 
+        
         <section class="birthday-photo-container">
             <img src="images/birthday-photo-3.jpg" alt="Fanny Giacomo - Te esperamos">
             <p>¡Tu presencia es el mejor regalo!</p>
@@ -642,12 +683,23 @@
         <section id="final-message">
             <div class="container">
                 <h2>¡Te Espero!</h2>
-                <p>Ven y celebra conmigo! Hagamos de este cumpleaños algo inolvidable.</p>
+                <p>¡Ven y celebra conmigo! Hagamos de este cumpleaños algo inolvidable.</p>
                 <p style="margin-top: 30px; font-size: 1.4em; font-family: 'Playfair Display', serif; color: var(--secondary-color); font-weight: bold;">¡Tu presencia lo hará perfecto!</p>
             </div>
         </section>
+        
+        <section id="rsvp">
+            <div class="container">
+                <h2>Confirma tu Asistencia</h2>
+                <p>Por favor, confírmanos tu asistencia antes del 13 de Noviembre para poder organizar todo mejor.</p>
+                
+                <a href="https://wa.me/523336620648?text=Quiero%20confirmar%20mi%20asistencia%20al%20cumpleaños%20de%20Fanny%20Giacomo%20el%20sabado%2015%20de%20noviembre%20de%202025." target="_blank" class="whatsapp-button">
+                    <i class="fab fa-whatsapp"></i> Confirmar Asistencia
+                </a>
 
-    </main>
+            </div>
+        </section>
+        </main>
 
     <footer>
         <p>© 2025 Fanny Giacomo. Todos los derechos reservados.</p>
