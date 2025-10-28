@@ -11,11 +11,15 @@
 
     <style>
         :root {
-            --primary-color: #f0f8ff;
-            --secondary-color: #191970;
+            /* Paleta de colores inspirada en la imagen floral */
+            --primary-color: #f7fdf7; /* Un verde muy claro, casi blanco */
+            --secondary-color: #8b4555; /* Rosa viejo/granate suave, para contrastes importantes */
+            --tertiary-color: #6a9c73; /* Verde suave para detalles */
             --text-color: #333;
             --light-text-color: #555;
             --white: #fff;
+            
+            /* Backgrounds e imágenes decorativas - mantén los nombres para tus imágenes */
             --splash-screen-background: url('images/splash-background.jpg');
             --hero-couple-photo: url('images/hero-background.jpg');
             --deco-corner-top-left: url('images/deco-corner-top-left.jpg');
@@ -137,7 +141,7 @@
 
         .open-button {
             display: inline-block;
-            background-color: var(--secondary-color);
+            background-color: var(--secondary-color); /* Color ajustado */
             color: var(--white);
             padding: 15px 40px;
             border-radius: 5px;
@@ -151,7 +155,7 @@
         }
 
         .open-button:hover {
-            background-color: #000080;
+            background-color: #6f3743; /* Tono más oscuro de secondary-color */
             transform: translateY(-3px);
         }
 
@@ -355,7 +359,7 @@
 
         .map-button {
             display: inline-block;
-            background-color: #4285F4;
+            background-color: var(--tertiary-color); /* Color ajustado a verde */
             color: var(--white);
             padding: 15px 30px;
             border-radius: 5px;
@@ -368,16 +372,49 @@
         }
 
         .map-button:hover {
-            background-color: #357ae8;
+            background-color: #5b8a61; /* Tono más oscuro de tertiary-color */
             transform: translateY(-3px);
         }
 
-        #rsvp {
+        /* Estilos para las nuevas imágenes de la cumpleañera */
+        .birthday-photo-container {
+            margin: 60px auto; /* Espacio antes y después */
+            max-width: 700px; /* Ancho máximo para el contenedor */
+            text-align: center;
+            background: var(--primary-color);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .birthday-photo-container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .birthday-photo-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            margin-bottom: 20px;
+        }
+        .birthday-photo-container p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6em;
+            color: var(--secondary-color);
+            margin-top: 10px;
+        }
+
+
+        #final-message {
             background: var(--primary-color);
             padding-bottom: 80px;
             position: relative;
         }
-        #rsvp .container::after {
+        #final-message .container::after {
             content: '';
             position: absolute;
             bottom: -50px;
@@ -390,32 +427,12 @@
             opacity: 0.8;
         }
 
-
-        #rsvp .container {
+        #final-message .container {
              background: rgba(255, 255, 255, 0.95);
              padding: 50px;
              border-radius: 15px;
         }
-
-        .rsvp-button {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: var(--white);
-            padding: 15px 30px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 1.2em;
-            margin-top: 30px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .rsvp-button:hover {
-            background-color: #000080;
-            transform: translateY(-3px);
-        }
-
+        
         footer {
             background-color: var(--light-text-color);
             color: var(--white);
@@ -444,12 +461,12 @@
             #hero .date-location { font-size: 1.3em; }
             section { padding: 60px 15px; }
             .container { padding: 25px; }
-            .rsvp-button, .map-button { padding: 12px 25px; font-size: 1em; }
+            .map-button { padding: 12px 25px; font-size: 1em; }
             .detail-item { text-align: center; border-left: none; }
             .countdown-item { font-size: 3em; gap: 15px; }
             .countdown-item span { font-size: 0.4em; }
             .decorative-separator { margin-top: 40px; margin-bottom: 40px; height: 100px; }
-            #detalles .container::after, #rsvp .container::after {
+            #detalles .container::after, #final-message .container::after {
                 width: 100px;
                 height: 100px;
                 bottom: -30px;
@@ -459,11 +476,18 @@
             .detail-item p {
                 font-size: 1.1em;
             }
-            .detail-item .time-info, .detail-item .reception-info {
+            .detail-item .time-info {
                 font-size: 1.2em;
             }
             .countdown-timer {
                 justify-content: space-around;
+            }
+            .birthday-photo-container {
+                margin: 40px auto;
+                padding: 20px;
+            }
+            .birthday-photo-container p {
+                font-size: 1.3em;
             }
         }
 
@@ -485,7 +509,14 @@
             .detail-item p {
                 font-size: 1em;
             }
-            .detail-item .time-info, .detail-item .reception-info {
+            .detail-item .time-info {
+                font-size: 1.1em;
+            }
+            .birthday-photo-container {
+                margin: 30px auto;
+                padding: 15px;
+            }
+            .birthday-photo-container p {
                 font-size: 1.1em;
             }
         }
@@ -528,6 +559,13 @@
 
         <div class="decorative-separator sep-1"></div>
 
+        <section class="birthday-photo-container">
+            <img src="images/birthday-photo-1.jpg" alt="Fanny Giacomo - Feliz Cumpleaños">
+            <p>¡No te lo puedes perder!</p>
+        </section>
+
+        <div class="decorative-separator sep-2"></div>
+
         <section id="countdown">
             <div class="container">
                 <h2>¡Faltan Sólo!</h2>
@@ -554,6 +592,13 @@
 
         <div class="decorative-separator sep-3"></div>
 
+        <section class="birthday-photo-container">
+            <img src="images/birthday-photo-2.jpg" alt="Fanny Giacomo - Celebrando">
+            <p>¡Hagamos de este día una fiesta inolvidable!</p>
+        </section>
+
+        <div class="decorative-separator sep-4"></div>
+
         <section id="detalles">
             <div class="container">
                 <h2>Detalles del Evento</h2>
@@ -561,7 +606,7 @@
                     <i class="fas fa-calendar-alt"></i>
                     <h3 style="color: var(--secondary-color);">Fecha y Hora</h3>
                     <p style="font-size: 1.4em; color: var(--text-color);">Sábado, 15 de noviembre del 2025</p>
-                    <p class="time-info">LA FIESTA EMPIEZA A LAS: 7:00 PM</p>
+                    <p class="time-info">LA FIESTA EMPIEZA A LAS: 2:00 PM</p>
                 </div>
                 <div class="detail-item">
                     <i class="fas fa-map-marker-alt"></i>
@@ -571,27 +616,34 @@
                     <p>Será en la terraza del coto al lado de la cancha de futbol.</p>
                     <iframe
                         class="location-map"
-                        src="https://www.google.com/maps/6"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3733.911364506509!2d-103.43962788559092!3d20.605575979384056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8425af6e31b79e51%3A0xf639e44f80c6c04b!2sAv%20Compositores%204572%2C%20Jardines%20de%20los%20Pinos%2C%2045239%20Zapopan%2C%20Jal.!5e0!3m2!1ses-419!2smx!4v1678901234567!5m2!1ses-419!2smx"
                         width="600"
                         height="450"
                         style="border:0;"
                         allowfullscreen=""
                         loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    <a href="https://www.google.com/maps/7" target="_blank" class="map-button">
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Av+Compositores+4572,+Jardines+de+los+Pinos,+45239+Zapopan,+Jal.&destination_place_id=ChIJyXG_71Q_KIQRf639e44f80c6c04b" target="_blank" class="map-button">
                         <i class="fas fa-map-marked-alt"></i> Abrir Mapa
                     </a>
                 </div>
             </div>
         </section>
 
-        <div class="decorative-separator sep-4"></div>
+        <div class="decorative-separator sep-5"></div>
 
-        <section id="rsvp">
+        <section class="birthday-photo-container">
+            <img src="images/birthday-photo-3.jpg" alt="Fanny Giacomo - Te esperamos">
+            <p>¡Tu presencia es el mejor regalo!</p>
+        </section>
+
+        <div class="decorative-separator sep-1"></div>
+
+        <section id="final-message">
             <div class="container">
                 <h2>¡Te Espero!</h2>
-                <p>Ven y celebra conmigo! Hagamos este cumpleaños inolvidable.</p>
-                <p style="margin-top: 30px; font-size: 1.4em; font-family: 'Playfair Display', serif; color: var(--secondary-color); font-weight: bold;">¡Te espero!</p>
+                <p>Ven y celebra conmigo! Hagamos de este cumpleaños inolvidable.</p>
+                <p style="margin-top: 30px; font-size: 1.4em; font-family: 'Playfair Display', serif; color: var(--secondary-color); font-weight: bold;">¡Tu presencia lo hará perfecto!</p>
             </div>
         </section>
 
@@ -602,11 +654,11 @@
     </footer>
 
     <script>
-        const weddingDate = new Date("November 15, 2025 19:00:00").getTime();
+        const birthdayDate = new Date("November 15, 2025 14:00:00").getTime(); /* 2 PM */
         
         function updateCountdown() {
             const now = new Date().getTime();
-            const distance = weddingDate - now;
+            const distance = birthdayDate - now;
 
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -651,16 +703,17 @@
             }, observerOptions);
 
             document.querySelectorAll('section').forEach(section => {
-                if (section.id !== 'hero') {
+                if (section.id !== 'hero') { /* Hero section is always visible on load */
                     observer.observe(section);
                 }
             });
             document.querySelectorAll('.decorative-separator').forEach(separator => {
                 observer.observe(separator);
             });
-            document.querySelectorAll('.story-image').forEach(image => {
-                observer.observe(image);
+            document.querySelectorAll('.birthday-photo-container').forEach(container => {
+                observer.observe(container);
             });
+
 
             openButton.addEventListener('click', () => {
                 splashScreen.classList.add('hidden');
